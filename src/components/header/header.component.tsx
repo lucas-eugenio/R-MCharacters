@@ -1,21 +1,15 @@
 import React from "react";
-import { useQuery } from "../../utils/useGraphQL";
 import logo from "../../assets/logo.svg";
-import CharactersQuery from "../../graphql/queries/characters.query";
 import { BaseHeader, HeaderImg } from "./header.styled";
+import { Link } from "../../utils/useRouter";
+import { charactersListRote } from "../../constants/routes";
 
-const Header = (): React.ReactElement => {
-  const { data, loading, error } = useQuery(CharactersQuery);
-
-  console.log("DATA:", data);
-  console.log("LOADING:", loading);
-  console.log("ERROR:", error);
-
-  return (
-    <BaseHeader>
+const Header = (): React.ReactElement => (
+  <BaseHeader>
+    <Link to={charactersListRote.completeUrl}>
       <HeaderImg src={logo} alt="" />
-    </BaseHeader>
-  );
-};
+    </Link>
+  </BaseHeader>
+);
 
 export default Header;

@@ -7,6 +7,7 @@ const spaces = {
 
 const colors = {
   darkBlue: "#282C34",
+  white: "#FFFFFF",
 };
 
 const styleSheet = {

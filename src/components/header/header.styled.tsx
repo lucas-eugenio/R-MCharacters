@@ -13,7 +13,3 @@ export const BaseHeader = styled.header`
 export const HeaderImg = styled.img`
   height: ${HEIGHT};
 `;
-
-export const Body = styled.body`
-  padding: ${styleSheet.spaces.large};
-`;
