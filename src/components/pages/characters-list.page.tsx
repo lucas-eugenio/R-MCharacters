@@ -23,7 +23,7 @@ const CharactersListPage = (): React.ReactElement => {
   return (
     <BasePage>
       <h1>Lista de Episódios</h1>
-      <Link to={characterDetailRoute.completeUrl}>Bleus</Link>
+      <Link to={characterDetailRoute}>Bleus</Link>
     </BasePage>
   );
 };

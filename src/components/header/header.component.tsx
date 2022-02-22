@@ -1,14 +1,14 @@
 import React from "react";
 import logo from "../../assets/logo.svg";
 import { BaseHeader, HeaderImg } from "./header.styled";
-import { Link } from "../../utils/useRouter";
-import { charactersListRote } from "../../constants/routes";
 
-const Header = (): React.ReactElement => (
+interface HeaderProps {
+  onLogoClick: () => void;
+}
+
+const Header = ({ onLogoClick }: HeaderProps): React.ReactElement => (
   <BaseHeader>
-    <Link to={charactersListRote.completeUrl}>
-      <HeaderImg src={logo} alt="" />
-    </Link>
+    <HeaderImg src={logo} alt="" role="button" onClick={onLogoClick} />
   </BaseHeader>
 );
 

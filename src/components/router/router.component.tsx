@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseRouter, Routes, Route } from "../../utils/useRouter";
+import { BaseRouter, Routes, Route, useNavigate } from "../../utils/useRouter";
 import CharactersListPage from "../pages/characters-list.page";
 import CharacterDetailPage from "../pages/character-detail.page";
 import {
@@ -8,21 +8,19 @@ import {
 } from "../../constants/routes";
 import Header from "../header/header.component";
 
-console.log("BLEUS:", characterDetailRoute);
-
 const Router = (): React.ReactElement => {
+  const navigate = useNavigate();
+
+  const handleHeaderLogoClick = (): void => {
+    navigate(charactersListRote);
+  };
+
   return (
     <BaseRouter>
-      <Header />
+      <Header onLogoClick={handleHeaderLogoClick} />
       <Routes>
-        <Route
-          path={charactersListRote.completeUrl}
-          element={<CharactersListPage />}
-        />
-        <Route
-          path={characterDetailRoute.completeUrl}
-          element={<CharacterDetailPage />}
-        />
+        <Route path={charactersListRote} element={<CharactersListPage />} />
+        <Route path={characterDetailRoute} element={<CharacterDetailPage />} />
         <Route path="*" element={<p>Nothing To See Here</p>} />
       </Routes>
     </BaseRouter>
