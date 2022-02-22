@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import BaseApp from "./components/base-app/base-app.component";
+import { GraphQLProvider, GraphQLClient } from "./utils/useGraphQL";
+import Header from "./components/header/header.component";
+import Body from "./components/body/body.component";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BaseApp />
+    <GraphQLProvider client={GraphQLClient}>
+      <Header />
+      <Body />
+    </GraphQLProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
