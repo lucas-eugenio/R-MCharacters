@@ -4,6 +4,7 @@ import styleSheet from "../../constants/style-sheet";
 const HEIGHT = "80px";
 
 export const BaseHeader = styled.header`
+  width: 100%;
   background-color: ${styleSheet.colors.darkBlue};
   height: ${HEIGHT};
   padding: ${styleSheet.spaces.small} ${styleSheet.spaces.none};
@@ -12,4 +13,5 @@ export const BaseHeader = styled.header`
 
 export const HeaderImg = styled.img`
   height: ${HEIGHT};
+  cursor: pointer;
 `;

@@ -12,7 +12,7 @@ const ListCharacterFragment = gql`
 export interface ListCharacterType {
   id: string;
   name: string;
-  status: string;
+  status: "Alive" | "Dead" | "unknown";
   image: string;
 }
 

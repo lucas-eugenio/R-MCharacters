@@ -28,6 +28,6 @@ export interface CharactersQueryVariablesType {
 export interface CharactersQueryResultsType {
   characters: {
     info: InfoType;
-    results: ListCharacterType;
+    results: ListCharacterType[];
   };
 }
