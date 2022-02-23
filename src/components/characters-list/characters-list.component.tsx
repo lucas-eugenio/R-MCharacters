@@ -27,12 +27,14 @@ const CharactersList = ({
   onNextClick,
   onPrevClick,
 }: CharactersListProps): React.ReactElement => {
+  const loadingCards = 12;
+
   const Content = (): React.ReactElement => {
     if (loading) {
       return (
         <Fragment>
-          {Array.from(Array(4).keys()).map((element) => (
-            <CharacterCardLoading />
+          {Array.from(Array(loadingCards).keys()).map((element) => (
+            <CharacterCardLoading key={element} />
           ))}
         </Fragment>
       );
