@@ -9,10 +9,12 @@ const ListCharacterFragment = gql`
   }
 `;
 
+export type StatusType = "Alive" | "Dead" | "unknown";
+
 export interface ListCharacterType {
   id: string;
   name: string;
-  status: "Alive" | "Dead" | "unknown";
+  status: StatusType;
   image: string;
 }
 

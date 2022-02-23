@@ -35,11 +35,10 @@ const shimmerStyle = css`
 `;
 
 export const IMG_SIZE = "80px";
-const IMG_RADIUS = "40px";
 export const CharacterImg = styled.img`
   width: ${IMG_SIZE};
   height: ${IMG_SIZE};
-  border-radius: ${IMG_RADIUS};
+  border-radius: 50%;
   float: left;
 `;
 
@@ -47,7 +46,7 @@ export const ImgShimmer = styled.div`
   ${shimmerStyle}
   width: ${IMG_SIZE};
   height: ${IMG_SIZE};
-  border-radius: ${IMG_RADIUS};
+  border-radius: 50%;
 `;
 
 export const NameText = styled.h2`
@@ -62,29 +61,4 @@ export const TextShimmer = styled.div`
   width: ${TEXT_WIDTH};
   height: ${styleSheet.spaces.medium};
   margin: ${styleSheet.spaces.extraSmall} ${styleSheet.spaces.none};
-`;
-
-const PILL_PADDING = "2px 6px";
-export const BasePill = styled.p`
-  width: fit-content;
-  padding: ${PILL_PADDING};
-  margin: ${styleSheet.spaces.none};
-  border: ${styleSheet.borders.base};
-  height: ${styleSheet.spaces.medium};
-  border-radius: ${styleSheet.spaces.medium};
-`;
-
-export const AlivePill = styled(BasePill)`
-  color: ${styleSheet.colors.green};
-  background-color: ${styleSheet.colors.lightGreen};
-`;
-
-export const DeadPill = styled(BasePill)`
-  color: ${styleSheet.colors.red};
-  background-color: ${styleSheet.colors.lightRed};
-`;
-
-export const UnknownPill = styled(BasePill)`
-  color: ${styleSheet.colors.darkGray};
-  background-color: ${styleSheet.colors.offWhite};
 `;

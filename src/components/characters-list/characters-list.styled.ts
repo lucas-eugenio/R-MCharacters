@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import styleSheet from "../../constants/style-sheet";
 
-export const ListTitle = styled.h1`
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const ListTitle = styled.h2`
   margin: ${styleSheet.spaces.large} ${styleSheet.spaces.none};
 `;
 

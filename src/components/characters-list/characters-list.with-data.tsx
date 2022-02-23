@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CharactersList from "./characters-list.component";
 import { useQuery } from "../../utils/useGraphQL";
 import CharactersQuery, {
@@ -7,17 +7,23 @@ import CharactersQuery, {
 } from "../../graphql/queries/characters.query";
 
 const CharactersListWithData = (): React.ReactElement => {
+  const [page, setPage] = useState(1);
+
   const { data, loading } = useQuery<
     CharactersQueryResultsType,
     CharactersQueryVariablesType
   >(CharactersQuery, {
-    variables: { page: 1 },
+    variables: { page: page },
   });
 
   return (
     <CharactersList
       loading={loading}
+      currPage={page}
       characters={data?.characters.results || []}
+      pageInfo={data?.characters.info || { pages: 1 }}
+      onPrevClick={() => setPage(page - 1)}
+      onNextClick={() => setPage(page + 1)}
     />
   );
 };

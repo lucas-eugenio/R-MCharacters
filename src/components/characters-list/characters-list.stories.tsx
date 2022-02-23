@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import React from "react";
 import CharactersList from "./characters-list.component";
 
@@ -27,10 +28,17 @@ const characters = [
   },
 ];
 
+const pageProps = {
+  currPage: 1,
+  pageInfo: { pages: 1 },
+  onPrevClick: () => action("Prev Click"),
+  onNextClick: () => action("Prev Click"),
+};
+
 export const Default = (): React.ReactElement => (
-  <CharactersList characters={characters} loading={false} />
+  <CharactersList characters={characters} loading={false} {...pageProps} />
 );
 
 export const Loading = (): React.ReactElement => (
-  <CharactersList characters={[]} loading />
+  <CharactersList characters={[]} loading {...pageProps} />
 );

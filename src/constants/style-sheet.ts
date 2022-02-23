@@ -9,6 +9,8 @@ const spaces = {
 const colors = {
   white: "#FFFFFF",
   offWhite: "#F5F5F5",
+
+  lightGray: "#F3F3F3",
   darkGray: "#545454",
 
   darkBlue: "#282C34",
