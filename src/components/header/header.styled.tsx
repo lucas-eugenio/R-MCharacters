@@ -13,5 +13,6 @@ export const BaseHeader = styled.header`
 
 export const HeaderImg = styled.img`
   height: ${HEIGHT};
-  cursor: pointer;
 `;
+
+// cursor: pointer;

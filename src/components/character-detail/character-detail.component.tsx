@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { DetailedCharacterType } from "../../graphql/fragments/detailed-character.fragment";
 import {
   ListItem,
@@ -15,9 +15,10 @@ import {
   Divider,
 } from "./character-detail.styled";
 import StatusPill from "../status-pill/status-pill.component";
+import translations from "../../constants/translations";
 
 interface CharacterDetailProps {
-  character: DetailedCharacterType;
+  character?: DetailedCharacterType;
 }
 
 interface DataItemProps {
@@ -40,6 +41,10 @@ const CharacterDetail = ({
     );
   };
 
+  if (!character) {
+    return <Fragment />;
+  }
+
   return (
     <CardWithColor>
       <TitleText>{character.name}</TitleText>
@@ -49,17 +54,29 @@ const CharacterDetail = ({
         </ImgWrapper>
         <TextContainer>
           <StatusContainer>
-            <StatusText>Status:</StatusText>
+            <StatusText>{`${translations.characterDetail.gender}:`}</StatusText>
             <StatusPill status={character.status} />
           </StatusContainer>
-          <DataItem regularText="Species" boldText={character.species} />
-          <DataItem regularText="Gender" boldText={character.gender} />
-          <DataItem regularText="Origin" boldText={character.origin.name} />
-          <DataItem regularText="Location" boldText={character.location.name} />
+          <DataItem
+            regularText={translations.characterDetail.species}
+            boldText={character.species}
+          />
+          <DataItem
+            regularText={translations.characterDetail.gender}
+            boldText={character.gender}
+          />
+          <DataItem
+            regularText={translations.characterDetail.origin}
+            boldText={character.origin.name}
+          />
+          <DataItem
+            regularText={translations.characterDetail.location}
+            boldText={character.location.name}
+          />
         </TextContainer>
       </InformationContainer>
       <Divider />
-      <TitleText>Episodes</TitleText>
+      <TitleText>{translations.characterDetail.episodes}</TitleText>
       <UnorderedList>
         {character.episode.map((ep) => (
           <ListItem>

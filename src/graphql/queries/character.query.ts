@@ -4,8 +4,8 @@ import DetailedCharacterFragment, {
 } from "../fragments/detailed-character.fragment";
 
 const CharacterQuery = gql`
-  query CharacterQuery($id: ID!) {
-    characters(id: $id) {
+  query CharacterQuery($characterId: ID!) {
+    character(id: $characterId) {
       ...DetailedCharacterFragment
     }
   }
@@ -15,7 +15,7 @@ const CharacterQuery = gql`
 export default CharacterQuery;
 
 export interface CharacterQueryVariablesType {
-  id: string;
+  characterId: string | number;
 }
 
 export interface CharacterQueryResultsType {

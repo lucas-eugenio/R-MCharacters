@@ -1,22 +1,25 @@
 import React, { Fragment } from "react";
+import createDetailRoute from "../../constants/routes";
+import translations from "../../constants/translations";
 import { InfoType } from "../../graphql/fragments/info.fragment";
 import { ListCharacterType } from "../../graphql/fragments/list-character.fragment";
 import CharacterCard from "../character-card/character-card.component";
 import CharacterCardLoading from "../character-card/character-card.loading";
 import { Paginator } from "../paginator/paginator.component";
 import {
-  TitleContainer,
-  ListContainer,
   ListTitle,
+  ListContainer,
+  TitleContainer,
+  LinkWithoutDecoration,
 } from "./characters-list.styled";
 
 interface CharactersListProps {
   characters: ListCharacterType[];
   loading: boolean;
   currPage: number;
-  pageInfo: InfoType;
-  onNextClick: () => void;
-  onPrevClick: () => void;
+  pageInfo?: InfoType;
+  onNextClick?: () => void;
+  onPrevClick?: () => void;
 }
 
 const CharactersList = ({
@@ -27,15 +30,22 @@ const CharactersList = ({
   onNextClick,
   onPrevClick,
 }: CharactersListProps): React.ReactElement => {
-  const loadingCards = 12;
-
   const Content = (): React.ReactElement => {
     if (loading) {
       return (
         <Fragment>
-          {Array.from(Array(loadingCards).keys()).map((element) => (
-            <CharacterCardLoading key={element} />
-          ))}
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
+          <CharacterCardLoading />
         </Fragment>
       );
     }
@@ -43,7 +53,12 @@ const CharactersList = ({
     return (
       <Fragment>
         {characters.map((character) => (
-          <CharacterCard key={character.id} character={character} />
+          <LinkWithoutDecoration
+            key={character.id}
+            href={createDetailRoute(character.id)}
+          >
+            <CharacterCard character={character} hasHover />
+          </LinkWithoutDecoration>
         ))}
       </Fragment>
     );
@@ -52,7 +67,7 @@ const CharactersList = ({
   return (
     <Fragment>
       <TitleContainer>
-        <ListTitle>Lista de Personagens</ListTitle>
+        <ListTitle>{translations.charactersList.title}</ListTitle>
         <Paginator
           currPage={currPage}
           pageInfo={pageInfo}

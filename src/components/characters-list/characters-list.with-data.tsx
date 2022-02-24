@@ -21,7 +21,7 @@ const CharactersListWithData = (): React.ReactElement => {
       loading={loading}
       currPage={page}
       characters={data?.characters.results || []}
-      pageInfo={data?.characters.info || { pages: 1 }}
+      pageInfo={data?.characters.info}
       onPrevClick={() => setPage(page - 1)}
       onNextClick={() => setPage(page + 1)}
     />

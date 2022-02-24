@@ -6,7 +6,8 @@ export const BasePill = styled.p`
   width: fit-content;
   padding: ${PILL_PADDING};
   margin: ${styleSheet.spaces.none};
-  border: ${styleSheet.borders.base};
+  border: solid;
+  border-width: 2px;
   height: ${styleSheet.spaces.medium};
   border-radius: ${styleSheet.spaces.medium};
 `;

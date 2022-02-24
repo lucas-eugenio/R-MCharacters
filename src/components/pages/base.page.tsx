@@ -10,7 +10,7 @@ const BasePage = ({ children }: BasePageProps): React.ReactElement => {
     <main
       style={{
         padding: styleSheet.spaces.large,
-        backgroundColor: styleSheet.colors.white,
+        color: styleSheet.colors.darkGray,
       }}
     >
       {children}

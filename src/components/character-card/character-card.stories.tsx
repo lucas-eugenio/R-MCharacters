@@ -7,7 +7,7 @@ export default {
   component: CharacterCard,
 };
 
-export const Alive = (): React.ReactElement => (
+export const WithoutHover = (): React.ReactElement => (
   <CharacterCard
     character={{
       id: "1",
@@ -18,25 +18,15 @@ export const Alive = (): React.ReactElement => (
   />
 );
 
-export const Dead = (): React.ReactElement => (
+export const WithHover = (): React.ReactElement => (
   <CharacterCard
     character={{
-      id: "9",
-      name: "Agency Director",
-      status: "Dead",
-      image: "https://rickandmortyapi.com/api/character/avatar/9.jpeg",
+      id: "1",
+      name: "Rick Sanchez",
+      status: "Alive",
+      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
     }}
-  />
-);
-
-export const Unknown = (): React.ReactElement => (
-  <CharacterCard
-    character={{
-      id: "14",
-      name: "Alien Morty",
-      status: "unknown",
-      image: "https://rickandmortyapi.com/api/character/avatar/14.jpeg",
-    }}
+    hasHover
   />
 );
 

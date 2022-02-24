@@ -7,13 +7,13 @@ const spaces = {
 };
 
 const colors = {
-  white: "#FFFFFF",
   offWhite: "#F5F5F5",
 
   lightGray: "#F3F3F3",
   darkGray: "#545454",
 
   darkBlue: "#282C34",
+  lightBlue: "#3d4148",
 
   green: "#1B6F20",
   lightGreen: "#D1E2D2",
@@ -22,15 +22,9 @@ const colors = {
   lightRed: "#fee0e0",
 };
 
-const borders = {
-  base: "1px solid",
-  radius: "8px",
-};
-
 const styleSheet = {
   spaces,
   colors,
-  borders,
 };
 
 export default styleSheet;

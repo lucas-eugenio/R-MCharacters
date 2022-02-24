@@ -28,3 +28,7 @@ export const ListContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
   }
 `;
+
+export const LinkWithoutDecoration = styled.a`
+  text-decoration: none;
+`;
