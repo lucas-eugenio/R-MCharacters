@@ -13,7 +13,7 @@ import {
   StatusContainer,
   StatusText,
   Divider,
-} from "./character-detail.styled";
+} from "./character-detail-card.styled";
 import StatusPill from "../status-pill/status-pill.component";
 import translations from "../../constants/translations";
 
@@ -26,7 +26,7 @@ interface DataItemProps {
   boldText: string;
 }
 
-const CharacterDetail = ({
+const CharacterDetailCard = ({
   character,
 }: CharacterDetailProps): React.ReactElement => {
   const DataItem = ({
@@ -54,7 +54,7 @@ const CharacterDetail = ({
         </ImgWrapper>
         <TextContainer>
           <StatusContainer>
-            <StatusText>{`${translations.characterDetail.gender}:`}</StatusText>
+            <StatusText>{`${translations.characterDetail.status}:`}</StatusText>
             <StatusPill status={character.status} />
           </StatusContainer>
           <DataItem
@@ -79,7 +79,7 @@ const CharacterDetail = ({
       <TitleText>{translations.characterDetail.episodes}</TitleText>
       <UnorderedList>
         {character.episode.map((ep) => (
-          <ListItem>
+          <ListItem key={ep.id}>
             {`[${ep.episode}] `}
             <b>{ep.name}</b>
           </ListItem>
@@ -89,4 +89,4 @@ const CharacterDetail = ({
   );
 };
 
-export default CharacterDetail;
+export default CharacterDetailCard;

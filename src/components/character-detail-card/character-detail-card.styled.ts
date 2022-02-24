@@ -43,7 +43,7 @@ export const StatusContainer = styled.div`
 
 export const StatusText = styled.p`
   margin: ${styleSheet.spaces.none};
-  margin-right: ${styleSheet.spaces.extraSmall};
+  margin-right: ${styleSheet.spaces.small};
 `;
 
 export const TextContainer = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CharactersList from "./characters-list.component";
 import { useQuery } from "../../utils/useGraphQL";
 import CharactersQuery, {
@@ -6,9 +6,12 @@ import CharactersQuery, {
   CharactersQueryVariablesType,
 } from "../../graphql/queries/characters.query";
 import Error from "../error/error.component";
+import { useNavigate, useParams } from "../../utils/useRouter";
+import { createListRoute } from "../../constants/routes";
 
 const CharactersListWithData = (): React.ReactElement => {
-  const [page, setPage] = useState(1);
+  const params = useParams();
+  const page = parseInt(params?.page || "1");
 
   const { data, loading, error } = useQuery<
     CharactersQueryResultsType,
@@ -16,6 +19,11 @@ const CharactersListWithData = (): React.ReactElement => {
   >(CharactersQuery, {
     variables: { page: page },
   });
+
+  const navigate = useNavigate();
+  const navigateToOtherPage = (page: number) => {
+    navigate(createListRoute(page));
+  };
 
   if (!!error) {
     return <Error message={error.message} />;
@@ -27,8 +35,7 @@ const CharactersListWithData = (): React.ReactElement => {
       currPage={page}
       characters={data?.characters.results || []}
       pageInfo={data?.characters.info}
-      onPrevClick={() => setPage(page - 1)}
-      onNextClick={() => setPage(page + 1)}
+      onRouteChange={navigateToOtherPage}
     />
   );
 };

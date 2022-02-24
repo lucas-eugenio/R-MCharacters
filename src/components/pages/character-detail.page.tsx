@@ -6,8 +6,8 @@ import CharacterQuery, {
   CharacterQueryResultsType,
   CharacterQueryVariablesType,
 } from "../../graphql/queries/character.query";
-import CharacterDetail from "../character-detail/character-detail.component";
-import CharacterDetailLoading from "../character-detail/character-detail.loading";
+import CharacterDetail from "../character-detail-card/character-detail-card.component";
+import CharacterDetailLoading from "../character-detail-card/character-detail.loading";
 import Error from "../error/error.component";
 
 // I opted to load Rick data, if there is no ID, because it is the first record.

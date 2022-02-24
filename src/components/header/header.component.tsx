@@ -1,15 +1,16 @@
 import React from "react";
 import logo from "../../assets/logo.svg";
-import { charactersListRote } from "../../constants/routes";
+import { baseRoute } from "../../constants/routes";
 import translations from "../../constants/translations";
+import { Link } from "../../utils/useRouter";
 import { BaseHeader, HeaderImg } from "./header.styled";
 
 const Header = (): React.ReactElement => {
   return (
     <BaseHeader>
-      <a href={charactersListRote}>
+      <Link to={baseRoute}>
         <HeaderImg src={logo} alt={translations.charactersList.name} />
-      </a>
+      </Link>
     </BaseHeader>
   );
 };

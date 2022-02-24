@@ -13,27 +13,25 @@ import { InfoType } from "../../graphql/fragments/info.fragment";
 interface PaginatorProps {
   currPage: number;
   pageInfo?: InfoType;
-  onNextClick?: () => void;
-  onPrevClick?: () => void;
   loading?: boolean;
+  onRouteChange?: (page: number) => void;
 }
 
 export const Paginator = ({
   pageInfo,
   currPage,
-  onNextClick,
-  onPrevClick,
   loading = false,
+  onRouteChange,
 }: PaginatorProps): React.ReactElement => {
-  const prevDisabled = loading || !pageInfo?.prev || !onPrevClick;
-  const nextDisabled = loading || !pageInfo?.next || !onNextClick;
+  const prevDisabled = loading || !pageInfo?.prev || !onRouteChange;
+  const nextDisabled = loading || !pageInfo?.next || !onRouteChange;
 
   return (
     <PaginatorContainer>
       <LeftIcon
         src={LeftArrowIcon}
         role="button"
-        onClick={() => !prevDisabled && onPrevClick()}
+        onClick={() => !prevDisabled && onRouteChange(currPage - 1)}
         disabled={prevDisabled}
       />
       {loading ? (
@@ -44,7 +42,7 @@ export const Paginator = ({
       <RightIcon
         src={RightArrowIcon}
         role="button"
-        onClick={() => !nextDisabled && onNextClick()}
+        onClick={() => !nextDisabled && onRouteChange(currPage + 1)}
         disabled={nextDisabled}
       />
     </PaginatorContainer>

@@ -7,12 +7,8 @@ export default {
   component: Paginator,
 };
 
-const handlePrevClick = (): void => {
-  action("Prev Click");
-};
-
-const handleNextClick = (): void => {
-  action("Next Click");
+const handleClick = (page: number): void => {
+  action(`Go To Page ${page}`);
 };
 
 export const WithSinglePage = (): React.ReactElement => (
@@ -21,8 +17,7 @@ export const WithSinglePage = (): React.ReactElement => (
     pageInfo={{
       pages: 1,
     }}
-    onPrevClick={handlePrevClick}
-    onNextClick={handleNextClick}
+    onRouteChange={handleClick}
   />
 );
 
@@ -33,8 +28,7 @@ export const WithTwoPages = (): React.ReactElement => (
       pages: 2,
       next: 1,
     }}
-    onPrevClick={handlePrevClick}
-    onNextClick={handleNextClick}
+    onRouteChange={handleClick}
   />
 );
 
@@ -46,8 +40,7 @@ export const WithThreePages = (): React.ReactElement => (
       prev: 1,
       next: 3,
     }}
-    onPrevClick={handlePrevClick}
-    onNextClick={handleNextClick}
+    onRouteChange={handleClick}
   />
 );
 
@@ -57,8 +50,7 @@ export const Loading = (): React.ReactElement => (
     pageInfo={{
       pages: 1,
     }}
-    onPrevClick={handlePrevClick}
-    onNextClick={handleNextClick}
     loading
+    onRouteChange={handleClick}
   />
 );

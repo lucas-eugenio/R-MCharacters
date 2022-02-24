@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import styleSheet from "../../constants/style-sheet";
+import { Link } from "../../utils/useRouter";
 
 export const TitleContainer = styled.div`
   display: flex;
@@ -29,6 +30,6 @@ export const ListContainer = styled.div`
   }
 `;
 
-export const LinkWithoutDecoration = styled.a`
+export const LinkWithoutDecoration = styled(Link)`
   text-decoration: none;
 `;

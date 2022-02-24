@@ -1,10 +1,10 @@
 import React from "react";
-import CharacterDetail from "./character-detail.component";
+import CharacterDetailCard from "./character-detail-card.component";
 import CharacterDetailLoading from "./character-detail.loading";
 
 export default {
-  title: "Storybook/CharacterDetail",
-  component: CharacterDetail,
+  title: "Storybook/CharacterDetailCard",
+  component: CharacterDetailCard,
 };
 
 const character = {
@@ -280,7 +280,7 @@ const character = {
 };
 
 export const Default = (): React.ReactElement => (
-  <CharacterDetail character={character} />
+  <CharacterDetailCard character={character} />
 );
 
 export const Loading = (): React.ReactElement => <CharacterDetailLoading />;

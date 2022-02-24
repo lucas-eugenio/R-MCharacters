@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import createDetailRoute from "../../constants/routes";
+import { createDetailRoute } from "../../constants/routes";
 import translations from "../../constants/translations";
 import { InfoType } from "../../graphql/fragments/info.fragment";
 import { ListCharacterType } from "../../graphql/fragments/list-character.fragment";
@@ -18,8 +18,7 @@ interface CharactersListProps {
   loading: boolean;
   currPage: number;
   pageInfo?: InfoType;
-  onNextClick?: () => void;
-  onPrevClick?: () => void;
+  onRouteChange?: (page: number) => void;
 }
 
 const CharactersList = ({
@@ -27,8 +26,7 @@ const CharactersList = ({
   loading,
   currPage,
   pageInfo,
-  onNextClick,
-  onPrevClick,
+  onRouteChange,
 }: CharactersListProps): React.ReactElement => {
   const Content = (): React.ReactElement => {
     if (loading) {
@@ -55,7 +53,7 @@ const CharactersList = ({
         {characters.map((character) => (
           <LinkWithoutDecoration
             key={character.id}
-            href={createDetailRoute(character.id)}
+            to={createDetailRoute(character.id)}
           >
             <CharacterCard character={character} hasHover />
           </LinkWithoutDecoration>
@@ -71,9 +69,8 @@ const CharactersList = ({
         <Paginator
           currPage={currPage}
           pageInfo={pageInfo}
-          onNextClick={onNextClick}
-          onPrevClick={onPrevClick}
           loading={loading}
+          onRouteChange={onRouteChange}
         />
       </TitleContainer>
       <ListContainer>

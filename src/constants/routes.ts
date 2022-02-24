@@ -1,10 +1,11 @@
-const baseRoute = "/";
-export const charactersListRote = baseRoute;
+export const baseRoute = "/";
+
+const charactersListParams = ":page";
+export const charactersListRoute = `${baseRoute}${charactersListParams}`;
+export const createListRoute = (page: number) =>
+  charactersListRoute.replace(charactersListParams, page.toString());
 
 const detailRouteParams = ":characterId";
-export const characterDetailRoute = `${charactersListRote}character/${detailRouteParams}`;
-
-const createDetailRoute = (characterId: string) =>
+export const characterDetailRoute = `${baseRoute}character/${detailRouteParams}`;
+export const createDetailRoute = (characterId: string) =>
   characterDetailRoute.replace(detailRouteParams, characterId);
-
-export default createDetailRoute;

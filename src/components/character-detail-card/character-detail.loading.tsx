@@ -4,7 +4,7 @@ import {
   ImgWrapper,
   InformationContainer,
   TextContainer,
-} from "./character-detail.styled";
+} from "./character-detail-card.styled";
 import { TextShimmer, SquaredImgShimmer } from "../shimmer/shimmer.styled";
 import Card from "../card/card.styled";
 
