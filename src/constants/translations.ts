@@ -12,6 +12,10 @@ const characterDetail = {
   episodes: "Appearances",
 };
 
-const translations = { charactersList, characterDetail };
+const error = {
+  title: "Oops, something went wrong!",
+};
+
+const translations = { charactersList, characterDetail, error };
 
 export default translations;

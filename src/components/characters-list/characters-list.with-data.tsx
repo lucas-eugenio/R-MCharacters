@@ -5,16 +5,21 @@ import CharactersQuery, {
   CharactersQueryResultsType,
   CharactersQueryVariablesType,
 } from "../../graphql/queries/characters.query";
+import Error from "../error/error.component";
 
 const CharactersListWithData = (): React.ReactElement => {
   const [page, setPage] = useState(1);
 
-  const { data, loading } = useQuery<
+  const { data, loading, error } = useQuery<
     CharactersQueryResultsType,
     CharactersQueryVariablesType
   >(CharactersQuery, {
     variables: { page: page },
   });
+
+  if (!!error) {
+    return <Error message={error.message} />;
+  }
 
   return (
     <CharactersList
