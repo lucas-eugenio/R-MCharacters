@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
 `;
 
 export const TextContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-left: ${styleSheet.spaces.medium};

@@ -4,42 +4,71 @@ import {
   ListItem,
   TitleText,
   DetailedImg,
-  BoldDataText,
-  DataContainer,
   UnorderedList,
-  ContentContainer,
-  CardWithMaxHeight,
-  EpisodesContainer,
+  CardWithColor,
+  InformationContainer,
+  TextContainer,
+  ImgWrapper,
+  DataText,
+  StatusContainer,
+  StatusText,
+  Divider,
 } from "./character-detail.styled";
+import StatusPill from "../status-pill/status-pill.component";
 
 interface CharacterDetailProps {
   character: DetailedCharacterType;
 }
 
+interface DataItemProps {
+  regularText: string;
+  boldText: string;
+}
+
 const CharacterDetail = ({
   character,
 }: CharacterDetailProps): React.ReactElement => {
+  const DataItem = ({
+    regularText,
+    boldText,
+  }: DataItemProps): React.ReactElement => {
+    return (
+      <DataText>
+        {`${regularText}: `}
+        <b>{boldText}</b>
+      </DataText>
+    );
+  };
+
   return (
-    <CardWithMaxHeight>
-      <ContentContainer>
-        <DataContainer>
-          <TitleText>{character.name}</TitleText>
+    <CardWithColor>
+      <TitleText>{character.name}</TitleText>
+      <InformationContainer>
+        <ImgWrapper>
           <DetailedImg src={character.image} alt="" />
-          <BoldDataText>{character.species}</BoldDataText>
-          <BoldDataText>{character.gender}</BoldDataText>
-          <BoldDataText>{`From ${character.origin.name}`}</BoldDataText>
-          <BoldDataText>{`In ${character.location.name}`}</BoldDataText>
-        </DataContainer>
-        <EpisodesContainer>
-          <TitleText>Episodes</TitleText>
-          <UnorderedList>
-            {character.episode.map((ep) => (
-              <ListItem>{`${ep.episode}: ${ep.name}`}</ListItem>
-            ))}
-          </UnorderedList>
-        </EpisodesContainer>
-      </ContentContainer>
-    </CardWithMaxHeight>
+        </ImgWrapper>
+        <TextContainer>
+          <StatusContainer>
+            <StatusText>Status:</StatusText>
+            <StatusPill status={character.status} />
+          </StatusContainer>
+          <DataItem regularText="Species" boldText={character.species} />
+          <DataItem regularText="Gender" boldText={character.gender} />
+          <DataItem regularText="Origin" boldText={character.origin.name} />
+          <DataItem regularText="Location" boldText={character.location.name} />
+        </TextContainer>
+      </InformationContainer>
+      <Divider />
+      <TitleText>Episodes</TitleText>
+      <UnorderedList>
+        {character.episode.map((ep) => (
+          <ListItem>
+            {`[${ep.episode}] `}
+            <b>{ep.name}</b>
+          </ListItem>
+        ))}
+      </UnorderedList>
+    </CardWithColor>
   );
 };
 

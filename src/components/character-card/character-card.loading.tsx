@@ -4,15 +4,14 @@ import Card from "../card/card.styled";
 import { ImgShimmer, TextShimmer } from "../shimmer/shimmer.styled";
 
 const IMG_SIZE = "80px";
-const TEXT_WIDTH = "120px";
 
 const CharacterCardLoading = (): React.ReactElement => (
   <Card>
     <CardContainer>
       <ImgShimmer size={IMG_SIZE} />
       <TextContainer>
-        <TextShimmer width={TEXT_WIDTH} />
-        <TextShimmer width={TEXT_WIDTH} />
+        <TextShimmer />
+        <TextShimmer />
       </TextContainer>
     </CardContainer>
   </Card>

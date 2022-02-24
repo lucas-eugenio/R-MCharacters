@@ -20,13 +20,27 @@ const shimmerStyle = css`
 export const ImgShimmer = styled.div<{ size: string }>`
   ${shimmerStyle}
   width: ${(props) => props.size};
-  height: ${(props) => props.size};
+  height: auto;
+  aspect-ratio: 1;
   border-radius: 50%;
 `;
 
-export const TextShimmer = styled.div<{ width: string }>`
+export const TextShimmer = styled.div`
   ${shimmerStyle}
-  width: ${(props) => props.width};
+  width: 100%;
   height: ${styleSheet.spaces.medium};
-  margin: ${styleSheet.spaces.extraSmall} ${styleSheet.spaces.none};
+  margin: ${styleSheet.spaces.none};
+  margin-bottom: ${styleSheet.spaces.medium};
+  :last-child {
+    margin-bottom: ${styleSheet.spaces.none};
+  }
+`;
+
+export const SquaredImgShimmer = styled.div`
+  ${shimmerStyle}
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: 250px;
+  border-radius: 10%;
 `;

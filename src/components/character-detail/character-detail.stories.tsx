@@ -13,6 +13,7 @@ const character = {
   image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
   species: "Human",
   gender: "Male",
+  status: "Alive" as const,
   origin: {
     name: "unknown",
   },
