@@ -11,7 +11,8 @@ import { createListRoute } from "../../constants/routes";
 
 const CharactersListWithData = (): React.ReactElement => {
   const params = useParams();
-  const page = parseInt(params?.page || "1");
+  const numericPage = !!params.page && parseInt(params?.page);
+  const page = numericPage || 1;
 
   const { data, loading, error } = useQuery<
     CharactersQueryResultsType,

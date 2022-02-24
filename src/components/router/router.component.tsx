@@ -2,6 +2,7 @@ import React from "react";
 import { BaseRouter, Routes, Route } from "../../utils/useRouter";
 import CharactersListPage from "../pages/characters-list.page";
 import CharacterDetailPage from "../pages/character-detail.page";
+import NoRoutePage from "../pages/no-route.page";
 import {
   baseRoute,
   charactersListRoute,
@@ -17,7 +18,7 @@ const Router = (): React.ReactElement => {
         <Route path={baseRoute} element={<CharactersListPage />} />
         <Route path={charactersListRoute} element={<CharactersListPage />} />
         <Route path={characterDetailRoute} element={<CharacterDetailPage />} />
-        <Route path="*" element={<p>Nothing To See Here</p>} />
+        <Route path="*" element={<NoRoutePage />} />
       </Routes>
     </BaseRouter>
   );

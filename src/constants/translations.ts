@@ -14,6 +14,7 @@ const characterDetail = {
 
 const error = {
   title: "Oops, something went wrong!",
+  noRoute: "There is norhing to see here. Click on Logo to go back to Home.",
 };
 
 const translations = { charactersList, characterDetail, error };
