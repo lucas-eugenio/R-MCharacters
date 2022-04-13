@@ -5,6 +5,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: ${styleSheet.spaces.small};
 `;
 
 export const TextContainer = styled.div`

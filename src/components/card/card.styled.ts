@@ -2,11 +2,14 @@ import styled from "styled-components";
 import styleSheet from "../../constants/style-sheet";
 
 const Card = styled.div<{ hasHover?: boolean }>`
-  padding: ${styleSheet.spaces.medium};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: ${styleSheet.colors.darkBlue};
   border: ${styleSheet.spaces.extraSmall} solid ${styleSheet.colors.darkBlue};
   border-radius: ${styleSheet.spaces.small};
-  height: max-content;
 
   ${(props) =>
     props.hasHover &&

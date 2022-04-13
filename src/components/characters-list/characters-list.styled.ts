@@ -15,6 +15,7 @@ export const ListTitle = styled.h2`
 export const ListContainer = styled.div`
   display: grid;
   gap: ${styleSheet.spaces.large};
+  grid-auto-rows: 1fr;
   grid-template-columns: repeat(1, 1fr);
 
   @media screen and (min-width: 767px) {
